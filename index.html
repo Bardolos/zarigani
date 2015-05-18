@@ -1,11 +1,17 @@
 <html>
-<object data='https://drive.google.com/file/d/0BwWTcnpD-yK6LVVLb05HTkMxekU/view?usp=sharing#' 
-        type='application/pdf' 
-        width='100%' 
-        height='100%'>
+<script type='text/javascript'>
 
-<p>It appears your Web browser is not configured to display PDF files. 
-No worries, just <a href='https://drive.google.com/file/d/0BwWTcnpD-yK6LVVLb05HTkMxekU/view?usp=sharing'>click here to download the PDF file.</a></p>
+  function embedPDF(){
 
-</object>
+    var myPDF = new PDFObject({ 
+
+      url: 'https://drive.google.com/file/d/0BwWTcnpD-yK6LVVLb05HTkMxekU/view?usp=sharing'
+
+    }).embed();  
+
+  }
+
+  window.onload = embedPDF; //Feel free to replace window.onload if needed.
+
+</script>
 </html>
