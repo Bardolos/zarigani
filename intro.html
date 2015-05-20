@@ -1,0 +1,70 @@
+			
+<meta charset="UTF-8">
+
+	<style>
+	body {background-color:white}
+	h1 {
+			    color:blue;
+			    font-family:verdana;
+			    font-size:2em;
+			    -webkit-transition: all 0.2s linear;
+			    transition: all 0.2s linear;
+			}
+	h1:hover {
+	    color:red;
+	    font-size:2.1em;
+	}
+	</style>
+<h1>Zarigani</h1>
+
+<p>Welcome to the introductory Zarigani page. You will find a brief description as well as an example of one of Zarigani's many uses.</p>
+
+<h2>What is Zarigani?</h2>
+
+<p>Literally speaking, Zarigani is a species of crayfish endemic to Japan. While this aplication is colored like one, and features a suggestive icon, it has nothing to do with seafood.</p>
+
+<p>Zarigani (the application) is written in Ruby and its main purpose is to transform Markdown into Markup (namely, HTML) in real time, side by side.</p>
+
+<p>This isn't really impressive, but Zarigani allows for more than that: you can write the <code>&lt;head&gt;</code> wrapper in a separate file, in which you're free to include styling and functionality - like CSS and Javascript, much like you would on a real web page. Zarigani works as a surrogate browser, allowing you to incorporate content from the web (like images, javascript files, etc.) into your Markdown, with the immediate result being visibl ein HTML.</p>
+
+<p>The motivation is quick prototyping. Write the <code>&lt;head&gt;</code> - called a <em>decorator</em> in Zarigani - once with all the style and functionality, then write all the Markdown you need, and that wrapper will be automatically envelop it. Zarigani supports changing both the decorator's contents, as well as the specific decorator file dynamically - meaning you can use Zarigani and style your HTML with your favourite editor at the same time as you go. Simply press Refresh or start typing to apply the changes.</p>
+
+<p>Zarigani is currently in advanced beta.</p>
+
+<h2>Zarigani in action</h2>
+
+<p>To see Zarigani in action, it would be better to try it for yourself. Unfortunately I cannot make the code available yet for personal reasons.</p>
+
+<p>Feel free to look at the following screenshot, and take of it what you will:</p>
+
+<p><img src="http://i.imgur.com/2SkUMdY.png" alt="Simple functionality test using a default _decorator_."></p>
+
+<p>You might notice the style is quite different from this one - it's just using a different <em>decorator</em>. The one in this picture was written by me specifically for one purpose: to document things. More specifically, to document video game development things. Even more specifically, to document video game quests in development.</p>
+
+<p>For this, I put together a semi-formal CSS, with a clear structure and more or less even coloring - without too many moving parts. For added flexibility, I added a few Javascript/JQuery code. This code turns nested markdown tags into interactive dialog sequences - useful for quests that branch within the plot, or that are heavy on exposition. With some creativity, you can make dialoge, quotes or journal entry stand out by using clever styling on current Markdown tokens.</p>
+
+<p>In the following example,  I dissected the video for the <a href="https://www.youtube.com/watch?v=Y7yXseaIT7Y">Precious Cargo quest walkthrough</a>, found in the <a href="https://www.youtube.com/channel/UCzybXLxv08IApdjdN0mJhEg">official Witcher Youtube channel</a>.</p>
+
+<p>I used Zarigani to document the existing content, and took the liberty to fill in the blanks with my imagination.</p>
+
+<p>You can see the interactive dialog in sections like these:
+<img src="http://i.imgur.com/b7Dzs9L.png" alt="Click the options to expand them!"></p>
+
+<p>When you hover your mouse on them, they turn red, indicating interaction. If you click them, they expand and reveal the conversation's flow.</p>
+
+<p>You can see this for yourself in the following link:</p>
+
+<p><a href="http://bardolos.github.io/zarigani/">Quest: Precious Cargo</a></p>
+
+<p>(These pages are currently hosted on Github, but Zarigani's code isn't)</p>
+
+<p>I hope you like it. Feel free to contact me if you wish to know more.</p>
+
+<h2>What is Zarigani's future?</h2>
+
+<p>As stated, Zarigani is currently in an advanced beta state: it works, but there's improving to do.</p>
+
+<p>Regarding the quest documentation system, a user interface might be in order. To be able to link quest chapters dynamically would also be a useful feature.</p>
+
+<p>All these may be due, but it is difficult to know, as Zarigani currently does what it was initially made for.</p>
+			  
