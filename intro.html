@@ -1,21 +1,234 @@
 			
 <meta charset="UTF-8">
+<style>
 
-	<style>
-	body {background-color:white}
-	h1 {
-			    color:blue;
-			    font-family:verdana;
-			    font-size:2em;
-			    -webkit-transition: all 0.2s linear;
-			    transition: all 0.2s linear;
-			}
-	h1:hover {
-	    color:red;
-	    font-size:2.1em;
+
+	body {
+		line-height: 24px;
+  	color: #222;
+  	background: #e8e6e3;
+		font-family: 'Helvetica';
+    text-align: justify;
 	}
-	</style>
-<h1>Zarigani</h1>
+
+	.page{
+		background: #f3f2f0;
+		max-width: 940px;
+		margin: 25 auto;
+		border-top: solid 1px #bbb;
+		border-left: solid 1px #bbb;
+		border-right: solid 1px #bbb;
+		border-bottom: solid 1px #999;
+		position: relative;
+		box-shadow: 0 0 40px rgba(71, 51, 31, 0.2);
+		
+	}
+
+	.content{
+		padding: 20px 40px 2px 40px;
+		max-width: 940px;
+  	background: #fbfaf8;
+	}
+
+	 h1 {
+    color:#dd3535;
+    width: 70%;
+    margin: 40 auto;
+    padding: 5px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 35px;
+  }
+
+  h2 {
+    color:#4C1A33;
+    display: block;
+    margin: 20;
+    margin-top: 40;
+    padding: 5px;
+    text-align: justify;
+    letter-spacing: 2px;
+    border-bottom: solid 1px #dd3535;
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+aside {
+	color: #868279;
+	position: absolute;
+	width: 199px;
+	right: 0px;
+  padding: 10px 10px;
+  background: #faf8f5;
+  border: solid 1px #f0e9db;
+  border-bottom: solid 1px #f7f4ed;
+	border-left: solid 5px #f7f4ed;
+  border-radius: 0px 0px 0px 20px;
+	font-size: 12px;
+
+}
+
+blockquote
+{
+  padding: 0;
+  margin: 0;
+}
+
+blockquote:not(.dialog){
+  display:block;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #666;
+  text-align: justify;
+  border-left: 1px dotted #dd3535;
+}
+
+blockquote:not(.dialog)::before{
+  content: "\201C"; /*Unicode for Left Double Quote*/
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #999;
+  
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top:5px;
+}
+
+blockquote:not(.dialog)::after{
+  /*Reset to make sure*/
+  content: "";
+}
+
+.dialog {
+	color: #444;
+  border-left: 1px dotted #dd3535;
+}
+
+.dialog ul {
+	list-style-type: none;
+}
+
+.dialog li {
+}
+
+.dialog_content {
+	border-left: 1px solid lightslategrey;
+	padding-left: 5px;
+  outline: 0;
+  color: inherit;
+  -webkit-transition: all linear 0.5s; /*For Zarigani*/
+  transition: all linear 0.5s;
+}
+
+.dialog_content:hover { 
+  border-color: #dd3535;
+  color: #dd3535;
+}
+
+.selected {
+  display:block;
+  position: relative;
+	border-color: #dd3535;
+}
+
+.selected::before {
+	content: "\003E"; /* Bracket Unicode */
+	font-family: Georgia, serif;
+  font-size: 20px;
+  color: #dd3535;
+  
+  /*Positioning*/
+  position: absolute;
+	top: -3px;
+  left: -15px;
+}
+
+.dialog_content.deselected
+{
+	opacity: 0.20;
+}
+
+.not-active {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+img {
+	border: 1px solid rgba(71, 51, 51, 0.4);
+	display: block;
+	margin: auto;
+  border-radius: 1px 3px 5px 5px;
+	box-shadow: 0 0 20px rgba(71, 51, 31, 0.5);
+	border-bottom: 30px solid rgba(121, 101, 101, 0.4);
+	max-width: 840px;
+}
+.caption {
+	color: black;
+	display: block;
+	position: relative;
+	font-family: Georgia, serif;
+	font-size: 15px;
+	color: #644;
+	width: 100%;
+	top: -25px;
+	margin: auto;
+	text-align: center;
+}
+
+blockquote h5 {
+  padding: 0;
+  margin: 0;
+  padding-right: 20px;
+  text-align: right;
+}
+
+pre {
+  white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+space {
+	display:block;
+	height: 1000px;
+}
+
+a {
+	color: #dd5252;
+}
+
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    var kids = $("body").children();
+    var page_div = "<div class='page'></div>";
+    var content_div = "<div class='content'></div>";
+    $("body").empty().append(page_div)
+    $(".page").append(content_div);
+    $(".content").append(kids);
+
+    //captions
+    $("img").each(function(){
+        var title = this.alt;
+        $(this).after('<div class="caption">'+ title +'</div>');
+    });
+
+});
+</script><h1>Zarigani</h1>
 
 <p>Welcome to the introductory Zarigani page. You will find a brief description as well as an example of one of Zarigani's many uses.</p>
 
@@ -37,7 +250,7 @@
 
 <p>Feel free to look at the following screenshot, and take of it what you will:</p>
 
-<p><img src="http://i.imgur.com/2SkUMdY.png" alt="Simple functionality test using a default _decorator_."></p>
+<p><img src="http://i.imgur.com/2SkUMdY.png" alt="Simple functionality test using a default &lt;em&gt;decorator&lt;/em&gt;."></p>
 
 <p>You might notice the style is quite different from this one - it's just using a different <em>decorator</em>. The one in this picture was written by me specifically for one purpose: to document things. More specifically, to document video game development things. Even more specifically, to document video game quests in development.</p>
 
@@ -47,14 +260,14 @@
 
 <p>I used Zarigani to document the existing content, and took the liberty to fill in the blanks with my imagination.</p>
 
-<p>You can see the interactive dialog in sections like these:
-<img src="http://i.imgur.com/b7Dzs9L.png" alt="Click the options to expand them!"></p>
+<p>You can see the interactive dialog in sections like these:</p>
+
+<p><img src="http://i.imgur.com/b7Dzs9L.png" alt="Click the options to expand them!"></p>
 
 <p>When you hover your mouse on them, they turn red, indicating interaction. If you click them, they expand and reveal the conversation's flow.</p>
 
-<p>You can see this for yourself in the following link:</p>
-
-<p><a href="http://bardolos.github.io/zarigani/">Quest: Precious Cargo</a></p>
+<p>You can see this for yourself in the following link:
+<a href="http://bardolos.github.io/zarigani/">Quest: Precious Cargo</a></p>
 
 <p>(These pages are currently hosted on Github, but Zarigani's code isn't)</p>
 
@@ -67,4 +280,419 @@
 <p>Regarding the quest documentation system, a user interface might be in order. To be able to link quest chapters dynamically would also be a useful feature.</p>
 
 <p>All these may be due, but it is difficult to know, as Zarigani currently does what it was initially made for.</p>
-			  
+
+<h2>Annex</h2>
+
+<p>Here I will post the Markdown code that generated both this page and the example above.</p>
+
+<p>Introduction page:</p>
+
+<pre>
+#Zarigani
+
+Welcome to the introductory Zarigani page. You will find a brief description as well as an example of one of Zarigani&#39;s many uses.
+
+##What is Zarigani?
+
+Literally speaking, Zarigani is a species of crayfish endemic to Japan. While this aplication is colored like one, and features a suggestive icon, it has nothing to do with seafood.
+
+Zarigani (the application) is written in Ruby and its main purpose is to transform Markdown into Markup (namely, HTML) in real time, side by side.
+
+This isn&#39;t really impressive, but Zarigani allows for more than that: you can write the `&lt;head&gt;` wrapper in a separate file, in which you&#39;re free to include styling and functionality - like CSS and Javascript, much like you would on a real web page. Zarigani works as a surrogate browser, allowing you to incorporate content from the web (like images, javascript files, etc.) into your Markdown, with the immediate result being visibl ein HTML.
+
+The motivation is quick prototyping. Write the `&lt;head&gt;` - called a _decorator_ in Zarigani - once with all the style and functionality, then write all the Markdown you need, and that wrapper will be automatically envelop it. Zarigani supports changing both the decorator&#39;s contents, as well as the specific decorator file dynamically - meaning you can use Zarigani and style your HTML with your favourite editor at the same time as you go. Simply press Refresh or start typing to apply the changes.
+
+Zarigani is currently in advanced beta.
+
+##Zarigani in action
+
+To see Zarigani in action, it would be better to try it for yourself. Unfortunately I cannot make the code available yet for personal reasons.
+
+Feel free to look at the following screenshot, and take of it what you will:
+
+![Simple functionality test using a default &lt;em&gt;decorator&lt;/em&gt;.](http://i.imgur.com/2SkUMdY.png)
+
+You might notice the style is quite different from this one - it&#39;s just using a different _decorator_. The one in this picture was written by me specifically for one purpose: to document things. More specifically, to document video game development things. Even more specifically, to document video game quests in development.
+
+For this, I put together a semi-formal CSS, with a clear structure and more or less even coloring - without too many moving parts. For added flexibility, I added a few Javascript/JQuery code. This code turns nested markdown tags into interactive dialog sequences - useful for quests that branch within the plot, or that are heavy on exposition. With some creativity, you can make dialoge, quotes or journal entry stand out by using clever styling on current Markdown tokens.
+
+In the following example,  I dissected the video for the [Precious Cargo quest walkthrough](https://www.youtube.com/watch?v=Y7yXseaIT7Y), found in the [official Witcher Youtube channel](https://www.youtube.com/channel/UCzybXLxv08IApdjdN0mJhEg).
+
+I used Zarigani to document the existing content, and took the liberty to fill in the blanks with my imagination.
+
+You can see the interactive dialog in sections like these:
+
+![Click the options to expand them!](http://i.imgur.com/b7Dzs9L.png)
+
+When you hover your mouse on them, they turn red, indicating interaction. If you click them, they expand and reveal the conversation&#39;s flow.
+
+You can see this for yourself in the following link:
+[Quest: Precious Cargo](http://bardolos.github.io/zarigani/)
+
+(These pages are currently hosted on Github, but Zarigani&#39;s code isn&#39;t)
+
+I hope you like it. Feel free to contact me if you wish to know more.
+
+##What is Zarigani&#39;s future?
+
+As stated, Zarigani is currently in an advanced beta state: it works, but there&#39;s improving to do.
+
+Regarding the quest documentation system, a user interface might be in order. To be able to link quest chapters dynamically would also be a useful feature.
+
+All these may be due, but it is difficult to know, as Zarigani currently does what it was initially made for.
+</pre>
+
+<p>Example page:</p>
+
+<pre>
+Quest : Precious Cargo
+==============
+
+Synopsis
+-----------
+
+
+The witcher decides to lend a helping hand to a pleading human male camping near the road in the White Orchard region. A terrible accident seems to have strayed this man from his path: his cart was attacked by monsters and he lost something precious. However, things are not what they appear at first to be: Geralt finds signs that the cart was ambushed, and a corpse that seems to have been the driver. After finding the item and confronting the man, the witcher can give him the box and leave with his reward, or he can get to the bottom of the story, which ends with the man confessing his crime. After this, Geralt can take the man to Nilfgaardian authorities, or let him go free with the box, or let him go, but keep the box for himself.
+
+
+Part I: The Plead
+--------------------
+
+As the witcher approaches the campfire, he can hear a man beckon to him: &lt;aside&gt;While the man looks like a peasant, his clothes are finely crafted, and quite clean - he wears a blue tunic with golden linings, as well as a marksman&#39;s cap. It should be noted that he carries a bow on his back, which seems to be of hunting or military grade.&lt;/aside&gt;
+&gt; Whoa! Master witcher! 
+#####~ Man near the road
+
+![Man near the road. Appears to be a merchant.](http://i.imgur.com/N7Iau5d.png)
+
+If Geralt decides to approach him, he can initiate dialogue. At first the man will lower his head, as if relieved that he got the witcher&#39;s attention. 
+
+Then, as Geralt speaks, the man stands up:
+
+&gt;* **Geralt**: What happened?
+* **Man**: Monsters! Monsters from the swamp! Folk said the road was traught with peril, but I wouldn&#39;t listen! Got my comeuppance now!
+* **Geralt**: Less moaning, more details. What happened? And how can I help? And remember, I don&#39;t work for free - witcher&#39;s code and all.
+&lt;aside&gt;The man&#39;s voice carries a convincing remark of his daunting, and his facial expression is one of sadness and distress. However, he doesn&#39;t seem to stare the witcher in the eye, and gestures while looking from left to right.&lt;/aside&gt;
+* **Man** _(visibly sighing)_: Well, was on my way to the Black Ones to trade. Suddenly, my horse got spooked, ran clear off the road. We hit a bump. I went flying, and the horse and cart rolled on. Then I heard bubbling, neighing... slurping! Something came out from the muck, devoured Asher, hooves and all!
+* **Man**: No doubt my goods&#39;re still on the cart... but I&#39;m too afeared to go and see. Thought maybe you...? I&#39;m most concerned about a little box. Bring it to me, I beg you.
+* _**Geralt** seems to ponder the situation._
+	* [Fine, I&#39;ll find your box.]()
+		* **Geralt**: Fine, I&#39;ll go. Let you know if I find that box.
+	* [Don&#39;t have time for this.]()
+&lt;aside&gt;The man sees the witcher&#39;s unwillingness to help and immediately gives up. He scratches his head in dispair.&lt;/aside&gt; 
+		* **Geralt**: I&#39;m busy. Maybe your customers will come and help you.
+
+If the witcher accepts the quest, it will be added to his journal now:
+
+&gt; ###Journal Entry
+The merchant Geralt found standing by the side of the road in White Orchard was extremely distraught. He had been hauling some precious goods to the Nilfgaardian camp when his horse spooked and veered off the road, pulling the merchant&#39;s cart with it and dumping the whole goods in the foggy swamp outside the camp. The poor horse became trapped in the muck and soon was devoured by the monsters who inevitably lurk in such places. The merchant was understandably afraid to go retreive his goods, and thus asked the witcher to do it for him - in return for a sizable reward.  
+
+&gt; ####Objectives: 
+**&gt;** Use your Witcher Senses to find where the cart left the road.  
+**&gt;**  **Find the little box the merchant mentioned using your Witcher Senses**.  
+
+
+Part 2: The Trail
+-------------------
+
+&lt;aside&gt;Looking for a challenge? Meditate until night and you&#39;ll perhaps find a more... &quot;crowded&quot; swamp.&lt;/aside&gt;
+While the witcher doesn&#39;t mention it, he figures the swamp is just down the road northwards. A few meters away, he spots some boxes laying on the road.
+
+Should he use his Witcher Senses now, Geralt will find some cart tracks diverging from the main road. West, towards the swamp. While on this state, the witcher can examine them:
+&gt; Cart tracks. Rode off into the swamp.
+#####~ Geralt
+
+![At night, the cart tracks contrast grimly with the road.](http://i.imgur.com/0xZbyZN.png)
+
+The journal log should be updated with minimal textual description reporting Geralt found the tracks. An objective is added, &quot;Find the cart.&quot; to further guide the quest&#39;s line.
+
+&gt; ###Journal Entry Addition
+Using his Witcher Senses, Geralt didn&#39;t take long to find the cart&#39;s little jaunt. Among some rubble on the road, the cart&#39;s tracks veered west towards the swamp.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** **Find the little box the merchant mentioned using your Witcher Senses**.   
+**&gt;** _Find the cart_.
+
+As the witcher proceeds throught the swamp, he might choose to employ his Witcher&#39;s Senses again to find the cart. As he does this, it might be apparent that he is not alone in that bog.
+
+When Geralt is nearing his objective, he will spot a Drowner patrolling the area. It would be logical to assume the beasts were here, mangling at some remains.
+
+The witcher will find it discomforting that such a large cart made it so far into the swamp without hitting a single tree - even when pulled by a spooked horse:
+
+&gt; Here&#39;s the cart...
+#####~ Geralt
+
+The witcher barely has time to think about getting his hands dirty in the bog&#39;s filth, trying to find the damned box, as the Drowner he found there near a tree will soon beckon more.
+After dealing with this small threat, Geralt catches his breath while he whips the blood out of his sword. It may be better to keep it unsheathed.
+
+&gt; ###Journal Entry Addition
+Geralt found the cart. It was half-destroyed, crashed into the swamp. No major threats besides some Drowners looking for food.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** **Find the little box the merchant mentioned using your Witcher Senses**.   
+**&gt;** &lt;del&gt;Find the cart.&lt;/del&gt;
+
+Part 3: The crime scene
+----------------------------
+
+&lt;aside&gt;It also definitely looks like a merchant&#39;s cart: boxes with pottery, consumables like cheese wheels, etc. all lie in the swamp&#39;s waters. However, something catches the witcher&#39;s attention. Red fletchings, dark-wood shafts: arrows.&lt;/aside&gt;
+As he looks around, Geralt recognizes a crash site. There is a horse, as mentioned, but something is amiss. Didn&#39;t poor Asher get devoured, hooves and all?  
+
+![The red in the fletchings again contrasts with the environment.](http://i.imgur.com/24XI5hv.png)
+
+The horse&#39;s corpse looks just like a clean big game kill: one arrow, more than half a length entrenched in its thorax, just behind its front leg. A shot not aimed at the heart, surely, but rather at the lungs. This would keep the animal alive long enough for a short run, and would not impede a fast, panicked trot. The horse&#39;s bleed-out pattern indicates the lungs filled with blood, suffocating the animal.
+
+Upon examining the corpse, the witcher makes his worries clear:
+&lt;aside&gt;The witcher&#39;s tone turns to one of amusement - as if the new discovery meant more rewards. After all, the witcher knew that the man didn&#39;t know that the witcher knew about the arrows... Some &lt;em&gt;negotiation&lt;/em&gt; is due. &lt;/aside&gt;
+
+&gt;An arrow... Didn&#39;t mention this.
+  
+&gt;Interesting, I should take a look around
+#####~ Geralt
+
+Naturally, no one likes to be fooled, especially not a witcher. But a witcher also knows better than to jump to conclusions without investigating.
+
+Again, the quest log should be updated to reflect the new developings.
+
+&gt; ###Journal Entry Addition
+Upon examining the horse, the witcher concluded it didn&#39;t die of a monster attack. A well placed shot at the animal&#39;s chest caused it to run uncontrolably until it got stuck in the swamp and died.  
+As a hunter himself, Geralt knew that such a shot was meant to hunt: it was aimed at the animal&#39;s lungs, which would drive the creature into a state of shock, flailing wildly.  
+The arrow didn&#39;t seem to puncture any leg bones or ligaments - being placed just above the front left leg - allowing the panicking animal to trot a short distance while its lungs filled with blood. The bloodstains on the horse&#39;s body suggest it bled to near-death while running, and then wasn&#39;t strong enough to overcome the muck&#39;s restrain, becoming stuck in it, only to suffocate in its own blood.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** **Find the little box the merchant mentioned using your Witcher Senses**.   
+**&gt;** &lt;del&gt;Find the cart.&lt;/del&gt;  
+**&gt;** _Look around the cart for evidence about the attack using your Witcher Senses_.
+
+Near the tree where the first Drowner was, there lies sprawling the corpse of what appears to be a human male. An arrow crosses his neck from left to right. 
+
+![The shot is more subtle here, against the foliage. Showing off Geralt&#39;s observation skills.](http://i.imgur.com/n9vjTwd.png)
+
+Geralt makes the point:
+
+&gt; Square in the neck. Good shot.
+#####~ Geralt
+
+This completes the previous objective.
+
+The layout starts becoming less of a puzzle: the arrows stuck on the cart were probably missed shots, or used to turn the driver&#39;s head toward the noise. The man on the ground seems to have been shot first, which - if done well enough - would kill him in his seat without startling the horse. The animal was next, but it strayed off the path and into the swamp. As the horse hit the bog&#39;s banks, it stalled and got sucked in, bringing the cart to a sudden halt and sending the dead driver flying forwards with the remaining momentum.
+
+&gt; ###Journal Entry Addition
+Using his Witcher Senses, Geralt found a corpse under a tree near the cart. In all fairness, the human male sprawling there face-down in the swamp looked more like a merchant than the man Geralt talked to before - this one seemed to wear Nilfgaardian colors, maybe even military.  
+He had an arrow crossing his neck from left to right - both the fletchings, shaft, and angle of entry matched the horse&#39;s. To Geralt, this meant it was a single man&#39;s job, executed from a stationary position from the west side of the road.  
+The driver was likely shot first. The creature followed and ran, and after it got stuck, the contents of the cart - including the dead driver - were catapulted into the swamp.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** **Find the little box the merchant mentioned using your Witcher Senses**.   
+**&gt;** &lt;del&gt;Find the cart.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Look around the cart for evidence about the attack using your Witcher Senses.&lt;/del&gt;
+
+As it becomes apparent that it was a deliberate attack, Geralt&#39;s mood starts sinking: witchers&#39; and thieves&#39; work is different, even if the results are the same. Inevitable doubts regarding the man&#39;s intentions come to mind:
+
+&gt; Either the merchant&#39;s got serious memory problems, or he&#39;s lying.
+
+However, the box  is still nowhere to be seen. Using his Witcher&#39;s Senses again, Geralt can find a woven basket of sorts a small distance away, among the rubble that was projected from the cart.
+
+![Drowners can be heard slurping in the distance, but none seem to be close enough.](http://i.imgur.com/1c8ZXtY.png)
+
+Under a frail tree, the witcher examines the contents of the basket. Inside he finds a **Locked strongbox**. Geralt immediately identifies it as the box he is supposed to be looking for. As he picks it up, he realizes it was not very well taken care of:
+
+&gt;Must be that box he mentioned. Splattered with blood... Human blood.
+
+After a small intermission, the witcher decided it is time to hear the merchant&#39;s version, so he makes his way back to the man&#39;s camp site near the road.
+
+&gt; ###Journal Entry Addition
+The witcher eventually found the box - it wasn&#39;t hard following the stench of human blood. As he examined the locked box, he noticed familiar remarks in the scent of the contents. Among the odor of blood and swamp filth, there was a faint sweet smell, suggesting the box contained valuable commodities such as perfumes, or perhaps alchemical components.  
+Either way, Geralt wanted to take it to the man near the side of the road.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Find the little box the merchant mentioned using your Witcher Senses.&lt;/del&gt;   
+**&gt;** &lt;del&gt;Find the cart.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Look around the cart for evidence about the attack using your Witcher Senses.&lt;/del&gt;
+**&gt;** **Return the box to the merchant**.
+
+Part 4: The confrontation
+------------------------------
+
+Upon arriving at the man&#39;s camp, Geralt can approach him. The man brightens up and springs lightly.
+
+&gt;* **Man**: Oh! And? You find the box?
+* _**Geralt** looks unamused._
+	* [Seen through your lies.]()
+		* **Geralt**: Yeah, found your priceless chest. And someone who looks an awful lot like a cart driver... with an arrow through his neck.
+		* **Geralt**: No dryads in these swamps, and never known a drowner or a water hag to use a bow. So lacking any other suspects, I&#39;m guessing--
+&lt;aside&gt;Although something like this would never work, the man is convinced of his acting capabilities. He makes a visible effort to look behind the witcher and put on a scared frown.&lt;br/&gt;It would be most visually impressive if Geralt had taken a potion such as Cat, which would let him see the man&#39;s blood vessels and heart, pounding heavily. The witcher is standing with his weight on his left foot. The wise would step down.&lt;/aside&gt;
+		* **Man** _(interrupting Geralt)_: Watch out! Behind you!
+		* **Geralt** _(immobile, arms crossed)_: There&#39;s nothing behind me. I&#39;m a witcher, I&#39;d have heard it. Just like I can hear your heart. Which is pounding... like a liar&#39;s.
+		* _The **Man** runs for his horse._
+		* **Geralt**: Best hope you&#39;re a better rider than you are a liar.
+		*   
+		* _The witcher can now go to **Part 5: The chase**._
+	* [Found it. Here.]()
+		* **Geralt**: Here&#39;s your little box. I&#39;d figure a bowman could take care of a couple of feeding drowners, though.
+		* **Man**: Oh, master witcher! Thank you! How can I ever repay you?
+		* **Geralt**: There are two ways to pay a witcher. From you? Only interested in gold.
+		* **Man** _(scratching his head)_: Fine... Take this. It&#39;s all I have that I can spare.
+		*   
+		* _The quest is finished, and the witcher takes his reward. See the **Ending: Give box**_
+	* [Be back later.]()
+		* **Geralt**: Not yet. I&#39;ll let you know when I do.
+		*   
+		* _The **Man** sits down, worrying. **Geralt** is left to his own devices._  
+
+Depending on how the dialogue flows, the quest will branch. See the following chapters:
+
+* **Part 5: The chase**
+*  **Ending: Give box**
+
+
+
+
+
+Part 5: The chase
+---------------------
+
+The man runs off horseback along the main road, in the opposite direction of the cart&#39;s way, towards the Sawmill.
+
+&gt;###Journal Entry Addition
+Geralt got back to the merchant and confronted him with facts. The man didn&#39;t even bother to explain. He tried to fool and distract the witcher, to no avail. Eventually, he made for his horse and trotted away. The witcher would not let the man run off on his own.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Find the little box the merchant mentioned using your Witcher Senses.&lt;/del&gt;   
+**&gt;** &lt;del&gt;Find the cart.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Look around the cart for evidence about the attack using your Witcher Senses.&lt;/del&gt;
+**&gt;** &lt;del&gt;Return the box to the merchant.&lt;/del&gt;  
+**&gt;** **Chase down the merchant**.  
+**&gt;** _Knock the merchant off his horse._
+
+The witcher gives chase.
+
+Eventually, Geralt catches up and is able to knock the man off his horse.
+
+![](http://i.imgur.com/6zHRKiU.png)
+
+The witcher approaches the knocked-out man and teases him with his foot:
+
+&gt;* **Geralt**: Wake up. See, can&#39;t run from the truth... not even on horseback. Now, who are you? And why&#39;d you attack that cart?
+&lt;aside&gt;The man&#39;s voice tone changes. He seems to be much more serious this time. The witcher believes he&#39;s telling the truth.&lt;/aside&gt;
+* **Man** _(Getting up)_: Private First Class John Geermer. Temerian Sixth Division, Second Regiment. Disbanded, but still active - underground, in the woods.
+* **Man**: That was a medical transport. I&#39;d be damned if it reached the Black Ones. And the medicine - our lads could use it, too. We&#39;ve many ill among us. You let me go, and they might live... and fight once more for a free North.
+* _**Geralt**&#39;s eyes pierce the **Man**, and he ponders._
+	* [Taking you to the Nilfgaardians.]()
+		* **Geralt**: I&#39;m taking you to the Nilfgaardians. You&#39;re a murderer, not a soldier.
+		* **Man**: And you&#39;re a traitor. There&#39;s a scaffold out there with your name on it.
+		*   
+		* _The quest proceeds to the **Ending: Bring to Nilfgaardians**._
+	* [Fine. Go.]()
+		* **Geralt**: Take it and leave. Don&#39;t forget who got it for you. I expect enough gold for the trouble of chasing you down.
+		* **Man**: Thank you, master witcher. We won&#39;t forget this. If you find any more Temerian disbandees, tell them to come over to the Sawmill.
+		*   
+		* _The quest ends with the **Man** going free and the witcher getting his reward. See **Ending: Give box**_
+	* [You&#39;re free to go... But the medicine stays with me.]()
+		* **Geralt**: A disbanded soldier turned into a murderer and a coward? Go on, run.
+		* **Geralt**: You&#39;ll get killed anyway. The Black Ones will find you. But this... this box stays with me.
+		* **Man**: What good is it to you, mutant? Aren&#39;t you immune to sickness?
+&lt;aside&gt;Depending on how the witcher decides to proceed, he might be able to return the box to the Nilfgaardians for a reward, similarly to the quest&#39;s &lt;b&gt;Ending: Bring to Nilfgaardians&lt;/b&gt;. However, depending on Geralt&#39;s political position, he might not be welcome, and they might think he stole it.&lt;/aside&gt;
+		* **Geralt**: My decision is final. Move.
+		*   
+		* _The **Man** looks like he wants to speak his mind, but the witcher&#39;s gaze deters him. He then leaves and the quest ends with the witcher keeping the box. See **Ending: Keep Box**_
+
+
+
+The quest has multiple endings, but they share this journal entry:
+
+&gt;###Journal Entry Addition
+A swift strike from the witcher&#39;s blade was enough to knock the man off his horse and into the ground, where he seemed to have passed out. After waking him up, Geralt interrogated him. The man revealed to be Private First Class John Geermer - Temerian Sixth Division, Second Regiment.  
+Apparently his unit had disbanded, and they all operated underground. The box he sought was medicine intended for Nilfgaardian soldiers. By stealing it he was sabotaging enemy operations, but at the same time assuring his own men didn&#39;t succumb to disease.  
+Although his motives were arguably decent, the witcher still had the box - and it was up to him to decide the little thing&#39;s fate.
+
+&gt; ####Objectives: 
+**&gt;**  &lt;del&gt;Use your Witcher Senses to find where the cart left the road.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Find the little box the merchant mentioned using your Witcher Senses.&lt;/del&gt;   
+**&gt;** &lt;del&gt;Find the cart.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Look around the cart for evidence about the attack using your Witcher Senses.&lt;/del&gt;
+**&gt;** &lt;del&gt;Return the box to the merchant.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Chase down the merchant.&lt;/del&gt;  
+**&gt;** &lt;del&gt;Knock the merchant off his horse&lt;/del&gt;
+
+For the final entry, see the following chapters:
+
+* **Ending: Give Box**
+* **Ending: Keep Box**
+* **Ending: Give to Nilfgaardians** 
+
+Quest Endings
+========
+
+Ending: Give Box
+--------------------
+
+Regardless of the man&#39;s motives, the witcher decides to give him the box and let him go.
+
+The final journal entry can be written in a way such that it fits in, whether the witcher gave him the box immediately or chased him on horseback:
+
+&gt; ###Final Journal Entry
+The witcher found it in himself to let the merchant go, and take his precious box with him.  
+He did not enjoy being fooled, but gold is known to make him sing a different tune.  
+Even if the man had been lying all along, Geralt is happy that he doesn&#39;t have anything more to do with that box.
+
+
+Geralt should get a more sizeable reward if he chases the man. Even if it isn&#39;t much: the extra effort should be valued.
+
+Ending: Keep Box
+---------------------
+
+Geralt wouldn&#39;t go through all the trouble just to hand the box so easily. Even if he shows mercy on the man, the witcher will make it clear that crime and cowardice don&#39;t pay. There is no need for revenge - the man didn&#39;t hurt the witcher.
+
+&gt; ###Final Journal Entry
+The witcher found it in himself to let the merchant go, but decided to keep the box to himself.  
+He did not enjoy being fooled, and he knows that someone is probably missing that medicine.  
+Geralt thought about the reward he&#39;d get for returning it, but would the Nilfgaardians believe his story?
+
+There is no gold reward this time, as the witcher gets to keep the box, which can introduce other quests.
+Ending: Give to Nilfgaardians
+----------------------------------
+
+The witcher approaches the Nilfgaardian camp in the zone, holding the **Man** prisoner.
+&lt;aside&gt;The Nilfgaardian camp seems busy. Near the gate&#39;s watch is a broad-shouldered soldier wearing no helmet. His armor is also different in the sense that his chestplate depicts a cast-gold sun - larger than the other soldiers&#39; contour-only emblems. He also has different rank insignias under his shoulder-plates. He is bald, and one can see a crooked tooth when he talks. He has a heavy southern accent. &lt;/aside&gt;
+
+He approaches the gate&#39;s watch and notices a soldier with no helmet, likely of a superior rank. 
+
+![The man looks rough, but he shows kindness to a stranger like Geralt.](http://i.imgur.com/sAxdiEm.png)
+
+Geralt goes and initiates dialogue:
+
+&gt;* **Geralt**: Hey, soldier! Waiting on a late transport, by any chance?
+* **Soldier**: What? Yes. Corporal Luffned set out to command headquarters for medicine. He has yet to return, though he was due back several days ago.
+* **Geralt**: Medicine&#39;s here, in this box. And this... is a three-in-one - liar, thief, and your corporal&#39;s murderer.
+* **Man**: Plough yourself, mutant.
+* _The witcher gazes into the **Man**&#39;s eyes, with a slight smirk._
+* **Soldier**: Captain Peter will see to him... And you, Nordling, deserve our thanks. The medication will not save our men&#39;s lives, but it will ease their dying.
+* _The witcher&#39;s thinks for a moment._
+	* [Got a reward coming my way?]()
+		* **Geralt**: Gotta say I was kind of counting on a tangible token of gratitude. A golden, clinky one, in fact.
+		* **Soldier**: I thought you acted from conviction, not greed. But if that is not the case, here. So you&#39;ll remember and tell others that Nilfgaard is generous with those who serve it willingly.
+		*   
+		* _The **Soldier** signals the **Man** to come with his hand while turning his back. The witcher is left to his own devices, with his reward in hand._
+	* [Your soldiers - what&#39;s their ailment?]()  
+&lt;aside&gt;Witchers like information as if it were gold. For all Geralt knows, the illness might very well be a curse or something on his line of work.&lt;/aside&gt;
+		* **Geralt**: Your soldiers falling sick? What with?
+		* **Soldier**: I do not know. I do not ask. Those who take an interest are usually sent straight to the front.
+		* _After this talk, Geralt is given the same two dialogue alternatives as before._
+
+This completes the quest.
+
+&gt; ###Final Journal Entry
+Geralt decided to teach the merchant a lesson by showing him cowardice and murder can turn out for the worst. Witchers don&#39;t care much about politics, but they respect the games of power - as long as they don&#39;t get in their way. The Nilfgaardians held that region, and they needed the medicine. A Corporal died needlessly; and to Geralt, the Temerian was no more than a loose scoundrel.  
+In the end, the witcher felt he did the right thing - especially since he saw some orens coming his way.
+
+The End
+=====
+
+This document was generated using Zarigani, a program developed by Jo&#227;o Meira.
+</pre>
