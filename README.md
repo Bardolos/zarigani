@@ -1,3 +1,3 @@
-# zarigani
+# Zarigani
 
-Hosting samples at the moment.
+Hosting a sample at the moment.
